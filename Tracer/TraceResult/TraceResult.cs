@@ -6,7 +6,17 @@ namespace Tracer
     public class TraceResult
     {
         private Thread[] _threads;
-        
+
+        public Thread[] Threads
+        {
+            get => _threads;
+            set => _threads = value;
+        }
+
+        public TraceResult()
+        {
+        }
+
         public TraceResult(ConcurrentDictionary<int, ConcurrentStack<Method>> threads)
         {
             KeyValuePair<int, ConcurrentStack<Method>>[] pairs = threads.ToArray();
@@ -19,7 +29,9 @@ namespace Tracer
             }
         }
 
-        public Thread[] Threads => _threads;
+//        public Thread[] Threads => _threads;
         
+//        public Thread[] Threads
+
     }
 }

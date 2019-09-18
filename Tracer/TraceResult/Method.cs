@@ -10,13 +10,21 @@ namespace Tracer
         private long _time;
         private Method[] _methods;
         private Stopwatch _stopwatch;
+        
+        public string Name => _name;
+        public string ClassName => _className;
+        public Method[] Methods => _methods;
+        public Stopwatch Stopwatch => _stopwatch;
+        public Method()
+        {
+        }
 
         public Method(string name, string className)
         {
             _name = name;
             _className = className;
             _time = 0;
-            _methods = null;
+            _methods = new Method[0];
             _stopwatch = new Stopwatch();
         }
 
