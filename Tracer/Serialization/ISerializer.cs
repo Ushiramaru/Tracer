@@ -2,7 +2,7 @@
 
 namespace Serialization
 {
-    public interface iSerializer
+    public interface ISerializer
     {
         string Serialize(TraceResult tr);
     }

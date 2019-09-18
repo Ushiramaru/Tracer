@@ -2,9 +2,9 @@
 
 namespace Serialization
 {
-    public class TraceResultXMLSerialize
+    public class TraceResultXMLSerialize : ISerializer
     {
-        private static string Serialize(Method m, string tab, string tab2)
+        private string Serialize(Method m, string tab, string tab2)
         {
             string methods = "";
             for (int i = 0; i < m.Methods.Length; i++)
@@ -17,7 +17,7 @@ namespace Serialization
             return json;
         }
 
-        private static string Serialize(Thread t)
+        private string Serialize(Thread t)
         {
             string methods = "";
             for (int i = 0; i < t.Methods.Length; i++)
@@ -31,7 +31,7 @@ namespace Serialization
             return json;
         }
 
-        public static string Serialize(TraceResult tr)
+        public string Serialize(TraceResult tr)
         {
             string json = "<root>";
             for (int i = 0; i < tr.Threads.Length; i++)

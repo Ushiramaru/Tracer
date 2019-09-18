@@ -32,9 +32,7 @@ namespace Tracer
             Method currMethod = new Method(methodName, className);
             stack.Push(currMethod);
 
-            Stopwatch timer = new Stopwatch();
-            
-            timer.Start();
+            currMethod.Start();
         }
 
         public void StopTrace()
@@ -62,19 +60,14 @@ namespace Tracer
             }
             else
             {
-                ConcurrentStack<Method> stopStack;
-                if (!_stopThreads.TryGetValue(threadId, out stopStack))
-                {
-                    throw new Exception("called before StartTrace");
-                }
+                ConcurrentStack<Method> stopStack = _stopThreads.GetOrAdd(threadId, new ConcurrentStack<Method>());
                 stopStack.Push(currMethod);
             }
         }
 
         public TraceResult GetTraceResult()
         {
-            TraceResult traceResult = new TraceResult(_stopThreads);
-            return null;
+            return new TraceResult(_stopThreads);
         }
     }
 }

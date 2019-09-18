@@ -14,10 +14,6 @@ namespace Tracer
         public string Name => _name;
         public string ClassName => _className;
         public Method[] Methods => _methods;
-        public Stopwatch Stopwatch => _stopwatch;
-        public Method()
-        {
-        }
 
         public Method(string name, string className)
         {
