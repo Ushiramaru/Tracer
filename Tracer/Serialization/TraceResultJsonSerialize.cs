@@ -16,9 +16,9 @@ namespace Serialization
                 }
             }
             string json = "\n"+tab2+"{"+
-                          "\n"+tab+"\"name\": "+m.Name+
-                          ",\n"+tab+"\"class\": "+m.ClassName+
-                          ",\n"+tab+"\"time\": "+m.Time+"ms"+
+                          "\n"+tab+"\"name\": "+"\""+m.Name+"\""+
+                          ",\n"+tab+"\"class\": "+"\""+m.ClassName+"\""+
+                          ",\n"+tab+"\"time\": "+"\""+m.Time+"ms"+"\""+
                           ",\n"+tab+"\"methods\": ["+
                           (methods == ""?"]":methods+"\n"+tab+"]")+
                           "\n"+tab2+"}";
@@ -38,8 +38,8 @@ namespace Serialization
             }
 
             string json = "\n        {"+
-                          "\n            \"id\": "+t.Id+
-                          "\n            \"time\": "+t.Time+
+                          "\n            \"id\": "+"\""+t.Id+"\""+
+                          "\n            \"time\": "+"\""+t.Time+"\""+
                           "\n            \"methods\": ["+
                           (methods == ""?"]":methods+"\n            ]")+
                           "\n        }";
